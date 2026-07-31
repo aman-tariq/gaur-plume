@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Gaur Alaris — Plume | 3 & 4 BHK Residences, Yamuna Expressway</title>
+<meta name="description" content="Gaur Alaris — Codename: Plume. 3 & 4 BHK bespoke residences at Sector 22-D, Yamuna Expressway, near Noida International Airport. Designed by Hafeez Contractor. Pre-launch price ₹8,499/sq.ft.*">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="images/gaurs-logo.png">
+<style>
+
+  /* ============ TOKENS ============ */
+  :root{
+    --void:#081815;
+    --emerald:#0e2b26;
+    --emerald-2:#123830;
+    --teal:#1c5a54;
+    --teal-soft:#2d6e70;
+    --gold:#c9a45c;
+    --gold-light:#e8d6a3;
+    --ivory:#f6f1e6;
+    --ivory-2:#efe7d6;
+    --ink:#12211d;
+    --ink-soft:#4a5a54;
+    --line:rgba(201,164,92,0.28);
+    --line-dark:rgba(201,164,92,0.18);
+
+    --display:'Cormorant Garamond', serif;
+    --body:'Jost', sans-serif;
+
+    --container:1180px;
+    --section-pad: clamp(56px, 9vw, 130px);
+    --edge: 24px;
+    --topbar-h: 40px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--body);
+    background:var(--ivory);
+    color:var(--ink);
+    font-weight:300;
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;max-width:100%;height:auto;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  ::selection{background:var(--gold);color:var(--void);}
+
+  .wrap{max-width:var(--container);margin:0 auto;padding:0 var(--edge);}
+
+  .eyebrow{
+    font-family:var(--body);
+    font-size:11.5px;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    font-weight:500;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:22px;height:1px;
+    background:currentColor;
+    opacity:.6;
+    flex-shrink:0;
+  }
+  .on-dark .eyebrow{color:var(--gold-light);}
+  .on-light .eyebrow{color:var(--teal);}
+
+  h1,h2,h3,h4{
+    font-family:var(--display);
+    font-weight:500;
+    line-height:1.08;
+    letter-spacing:0.01em;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:16px 30px;
+    font-size:12.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    font-weight:500;
+    border:1px solid var(--gold);
+    border-radius:2px;
+    transition:all .35s ease;
+    white-space:nowrap;
+  }
+  .btn-solid{background:var(--gold);color:var(--void);}
+  .btn-solid:hover{background:var(--gold-light);border-color:var(--gold-light);transform:translateY(-2px);}
+  .btn-ghost{color:var(--gold-light);background:transparent;}
+  .btn-ghost:hover{background:rgba(201,164,92,0.12);transform:translateY(-2px);}
+  .btn-ghost.on-light{color:var(--teal);border-color:var(--teal);}
+  .btn-ghost.on-light:hover{background:rgba(28,90,84,0.08);}
+
+  .plume-mark{
+    display:inline-block;flex-shrink:0;
+    width:13px;height:13px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, var(--gold-light), var(--teal-soft) 55%, var(--emerald) 100%);
+    box-shadow:0 0 0 1px var(--line);
+  }
+
+  /* ============ TOP UTILITY BAR ============ */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:101;
+    height:var(--topbar-h);
+    background:var(--void);
+    border-bottom:1px solid var(--line-dark);
+    display:flex;align-items:center;
+    font-size:12px;
+    color:var(--ivory-2);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;width:100%;gap:16px;}
+  .topbar .tb-brand{
+    color:var(--gold-light);
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:500;
+    font-size:11.5px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .topbar .tb-contact{display:flex;align-items:center;gap:18px;flex-shrink:0;}
+  .topbar .tb-contact a{display:flex;align-items:center;gap:6px;font-size:12px;white-space:nowrap;}
+  .topbar .tb-contact a:hover{color:var(--gold-light);}
+  .topbar .tb-contact svg{width:13px;height:13px;flex-shrink:0;}
+  @media(max-width:760px){
+    .topbar .tb-contact a.tb-email{display:none;}
+  }
+  @media(max-width:480px){
+    :root{--topbar-h:36px;}
+    .topbar .tb-brand{font-size:10px;letter-spacing:.08em;}
+    .topbar .tb-contact a{font-size:11px;}
+  }
+
+  /* ============ NAV ============ */
+  header.site-nav{
+    position:fixed;top:var(--topbar-h);left:0;right:0;
+    z-index:100;
+    padding:20px 0;
+    transition:background .4s ease, padding .4s ease, box-shadow .4s ease, top .3s ease;
+  }
+  header.site-nav.scrolled{
+    background:rgba(8,24,21,0.94);
+    backdrop-filter:blur(10px);
+    padding:12px 0;
+    box-shadow:0 10px 30px -15px rgba(0,0,0,.6);
+  }
+  .nav-inner{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 var(--edge);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
+  .logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .logo img{height:34px;width:auto;}
+  .nav-links{display:flex;gap:34px;}
+  .nav-links a{
+    font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ivory-2);opacity:.85;position:relative;padding-bottom:4px;
+  }
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .3s ease;}
+  .nav-links a:hover{opacity:1;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:flex;align-items:center;gap:12px;}
+  .nav-burger{
+    display:none;
+    width:38px;height:38px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    align-items:center;justify-content:center;
+    flex-direction:column;gap:5px;
+    flex-shrink:0;
+  }
+  .nav-burger span{display:block;width:16px;height:1px;background:var(--gold-light);transition:transform .3s ease, opacity .3s ease;}
+  .nav-burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+  .nav-burger.open span:nth-child(2){opacity:0;}
+  .nav-burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+
+  .mobile-menu{
+    position:fixed;inset:0;z-index:98;
+    background:rgba(8,24,21,0.98);
+    backdrop-filter:blur(8px);
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    gap:30px;
+    opacity:0;visibility:hidden;
+    transition:opacity .35s ease, visibility .35s ease;
+  }
+  .mobile-menu.open{opacity:1;visibility:visible;}
+  .mobile-menu a{
+    font-family:var(--display);
+    font-size:28px;color:var(--ivory);
+    letter-spacing:.02em;
+  }
+  .mobile-menu .mm-cta{margin-top:10px;}
+
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .nav-burger{display:flex;}
+    .nav-cta .btn{padding:11px 18px;font-size:11px;}
+  }
+  @media(max-width:400px){
+    .nav-cta .btn span.btn-text-full{display:none;}
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    background:
+      radial-gradient(ellipse 90% 60% at 75% 10%, rgba(45,110,112,0.35), transparent 60%),
+      linear-gradient(180deg, var(--void) 0%, #0a201c 55%, var(--emerald) 100%);
+    color:var(--ivory);
+    overflow:hidden;
+    padding-top:calc(var(--topbar-h) + 100px);
+    padding-bottom:70px;
+  }
+  .hero-feather{
+    position:absolute;right:-8%;top:6%;
+    width:min(56vw, 680px);
+    opacity:.85;pointer-events:none;
+  }
+  .hero-feather svg{width:100%;height:auto;}
+  .feather-stroke{
+    fill:none;stroke:var(--gold);stroke-width:1;opacity:.5;
+    stroke-dasharray:1400;stroke-dashoffset:1400;
+    animation:draw 2.6s ease forwards .3s;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  .feather-eye-ring{fill:none;stroke:var(--teal-soft);stroke-width:1;opacity:.65;}
+
+  .hero-inner{position:relative;z-index:2;max-width:var(--container);margin:0 auto;padding:0 var(--edge);width:100%;}
+
+  .hero-brand-row{
+    display:flex;align-items:center;gap:12px;margin-bottom:22px;flex-wrap:wrap;
+  }
+  .hero-brand-row .hb-project{
+    font-family:var(--display);
+    font-size:clamp(18px,2vw,24px);
+    color:var(--ivory);
+    letter-spacing:.02em;
+  }
+  .hero-brand-row .hb-sep{color:var(--gold);opacity:.6;}
+  .hero-brand-row .hb-tag{
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-light);
+    border:1px solid var(--line);padding:5px 12px;border-radius:20px;
+  }
+
+  .hero-kicker{margin-bottom:8px;}
+
+  .hero-codename-block{margin:18px 0 26px;}
+  .hero-codename-block .cn-label{
+    font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--ivory-2);opacity:.85;
+    display:block;margin-bottom:6px;
+  }
+  .hero-codename-block .cn-name{
+    font-family:var(--display);
+    font-style:italic;
+    font-weight:600;
+    font-size:clamp(64px, 13vw, 168px);
+    line-height:0.9;
+    color:transparent;
+    background:linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 55%, var(--teal-soft) 130%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-stroke:1px rgba(232,214,163,0.4);
+    letter-spacing:.01em;
+    display:inline-block;
+  }
+
+  .hero-tagline{
+    font-size:clamp(15px,1.5vw,18px);
+    color:var(--ivory-2);
+    font-weight:300;
+    max-width:520px;
+    margin-bottom:34px;
+  }
+  .hero-tagline b{color:var(--ivory);font-weight:500;}
+
+  .hero-cta-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px;}
+
+  .hero-price-strip{
+    display:flex;flex-wrap:wrap;
+    border:1px solid var(--line);
+    border-radius:3px;
+    max-width:680px;
+    overflow:hidden;
+    background:rgba(255,255,255,0.02);
+  }
+  .price-cell{
+    flex:1 1 33%;min-width:150px;
+    padding:20px 22px;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .price-cell:last-child{border-right:none;}
+  .price-cell .pc-label{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-2);opacity:.7;margin-bottom:8px;}
+  .price-cell .pc-value{font-family:var(--display);font-size:clamp(22px,2.4vw,30px);color:var(--gold-light);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+  .price-cell .pc-strike{color:var(--ivory-2);opacity:.55;text-decoration:line-through;}
+  .price-cell .pc-unit{font-size:12px;color:var(--ivory-2);opacity:.7;font-family:var(--body);}
+
+  .hero-scroll{position:absolute;bottom:24px;left:var(--edge);display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ivory-2);opacity:.6;}
+  .hero-scroll .line{width:1px;height:30px;background:var(--gold);position:relative;overflow:hidden;}
+  .hero-scroll .line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--gold-light);animation:scrollLine 2s ease-in-out infinite;}
+  @keyframes scrollLine{50%{top:100%;}100%{top:100%;}0%{top:-100%;}}
+  @media(max-width:600px){.hero-scroll{display:none;}}
+
+  /* ============ PERSPECTIVE ============ */
+  .perspective{background:var(--ivory);padding:var(--section-pad) 0;}
+  .persp-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+  .persp-copy h2{font-size:clamp(28px,3.6vw,46px);color:var(--ink);margin:18px 0 24px;}
+  .persp-copy p{color:var(--ink-soft);font-size:16.5px;max-width:480px;margin-bottom:16px;}
+  .persp-visual{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(8,24,21,0.4);}
+  .persp-visual img{width:100%;height:100%;object-fit:cover;object-position:center 35%;}
+  .persp-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, transparent 55%, rgba(8,24,21,0.75));}
+  .persp-visual .frame-text{position:absolute;bottom:24px;left:24px;right:24px;color:var(--ivory);z-index:2;}
+  .img-tag{
+    position:absolute;left:16px;top:16px;z-index:3;
+    font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ivory-2);background:rgba(8,24,21,0.55);
+    border:1px solid rgba(232,214,163,0.3);
+    padding:5px 10px;border-radius:20px;backdrop-filter:blur(3px);
+  }
+  .frame-text .ft-eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);opacity:.9;margin-bottom:6px;display:block;}
+  .frame-text .ft-main{font-family:var(--display);font-size:21px;color:var(--ivory);}
+  @media(max-width:860px){.persp-grid{grid-template-columns:1fr;gap:40px;}}
+
+  /* ============ SECTION SHARED ============ */
+  .section{padding:var(--section-pad) 0;}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head h2{font-size:clamp(28px,3.8vw,48px);margin-top:16px;}
+  .section-head p{margin-top:14px;font-size:15.5px;max-width:520px;}
+  .on-dark .section-head h2{color:var(--ivory);}
+  .on-dark .section-head p{color:var(--ivory-2);}
+  .on-light .section-head h2{color:var(--ink);}
+  .on-light .section-head p{color:var(--ink-soft);}
+
+  /* ============ RESIDENCES / TOWER BANNER ============ */
+  .configs{background:var(--emerald);color:var(--ivory);position:relative;}
+  .configs::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 85% 20%, rgba(201,164,92,0.08), transparent 55%);pointer-events:none;}
+  .tower-banner{
+    position:relative;
+    border-radius:6px;overflow:hidden;
+    margin-bottom:40px;
+    border:1px solid var(--line);
+    box-shadow:0 40px 90px -35px rgba(0,0,0,0.55);
+  }
+  .tower-banner img{width:100%;max-height:480px;object-fit:cover;object-position:center 22%;}
+  .tower-banner .tb-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(0deg, rgba(8,24,21,0.85) 0%, rgba(8,24,21,0.1) 55%);
+    display:flex;align-items:flex-end;
+    padding:28px;
+  }
+  .tower-banner .tb-caption{font-family:var(--display);font-size:clamp(18px,2.4vw,26px);color:var(--gold-light);max-width:520px;}
+
+  .config-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .config-card{border:1px solid var(--line);padding:38px 32px;position:relative;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);transition:border-color .3s ease, transform .3s ease;}
+  .config-card:hover{border-color:var(--gold);transform:translateY(-5px);}
+  .config-card .cc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:30px;gap:10px;flex-wrap:wrap;}
+  .config-card .cc-bhk{font-family:var(--display);font-size:48px;color:var(--gold-light);}
+  .config-card .cc-tag{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-2);opacity:.7;border:1px solid var(--line);padding:6px 12px;border-radius:20px;white-space:nowrap;}
+  .config-card p{color:var(--ivory-2);font-size:14.5px;max-width:340px;margin-bottom:0;}
+  .config-card .cc-area{font-size:13.5px;color:var(--ivory-2);opacity:.85;padding-top:20px;margin-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+  .cc-area b{color:var(--gold-light);font-family:var(--display);font-size:19px;font-weight:500;}
+  @media(max-width:640px){.config-grid{grid-template-columns:1fr;}}
+
+  /* ============ ARCHITECT ============ */
+  .architect{background:var(--ivory-2);padding:calc(var(--section-pad) * 0.7) 0;}
+  .architect-inner{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center;}
+  .architect-mark{width:74px;height:74px;border:1px solid var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .architect-mark svg{width:32px;height:32px;}
+  .architect-text h3{font-size:clamp(22px,3vw,32px);color:var(--ink);max-width:640px;}
+  .architect-text p{margin-top:12px;color:var(--ink-soft);font-size:14.5px;max-width:600px;}
+  @media(max-width:700px){.architect-inner{grid-template-columns:1fr;text-align:left;}}
+
+  /* ============ STAT STRIP ============ */
+  .stats{background:var(--void);color:var(--ivory);padding:60px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .stat-item{padding:16px 22px;border-left:1px solid var(--line);}
+  .stat-item .st-num{font-family:var(--display);font-size:clamp(28px,3.2vw,40px);color:var(--gold-light);line-height:1;}
+  .stat-item .st-label{margin-top:10px;font-size:11.5px;letter-spacing:.06em;color:var(--ivory-2);opacity:.75;max-width:180px;}
+  @media(max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr);row-gap:32px;}}
+
+  /* ============ CLUB REGALIA ============ */
+  .club{background:var(--void);color:var(--ivory);}
+  .club-hero{position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line);margin-bottom:34px;box-shadow:0 40px 90px -35px rgba(0,0,0,0.55);}
+  .club-hero img{width:100%;max-height:540px;object-fit:cover;object-position:center 42%;}
+  .club-hero .ch-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(0deg, rgba(8,24,21,0.92) 5%, rgba(8,24,21,0.2) 62%);
+    display:flex;flex-direction:column;justify-content:flex-end;padding:36px;
+  }
+  .club-hero .ch-title{font-family:var(--display);font-size:clamp(26px,3.6vw,44px);color:var(--ivory);max-width:560px;}
+  .club-hero .ch-num{font-family:var(--display);font-size:clamp(30px,4vw,48px);color:var(--gold-light);margin-top:6px;}
+  .club-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center;}
+  .club-grid .cg-media{border-radius:6px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px -30px rgba(8,24,21,0.35);position:relative;}
+  .club-grid .cg-media img{width:100%;object-fit:cover;aspect-ratio:4/3;object-position:center 30%;}
+  .club-list li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--ivory-2);}
+  .club-list li:first-child{padding-top:0;}
+  @media(max-width:800px){.club-grid{grid-template-columns:1fr;}}
+
+  /* ============ AMENITY ZONES ============ */
+  .amenities{background:var(--ivory);}
+  .zone-card{
+    display:grid;grid-template-columns:1fr 1fr;gap:44px;
+    align-items:center;
+    padding:44px 0;
+    border-top:1px solid var(--line-dark);
+  }
+  .zone-card:last-child{border-bottom:1px solid var(--line-dark);}
+  .zone-card.reverse .zone-media{order:2;}
+  .zone-card.reverse .zone-copy{order:1;}
+  .zone-media{border-radius:6px;overflow:hidden;position:relative;border:1px solid var(--line-dark);box-shadow:0 30px 70px -32px rgba(18,33,29,0.35);}
+  .zone-media img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .6s ease;}
+  .zone-media:hover img{transform:scale(1.04);}
+  .zone-copy .zc-title{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);color:var(--ink);margin-bottom:16px;}
+  .zone-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;}
+  .zone-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ink-soft);padding:4px 0;}
+  .zone-list li .plume-mark{margin-top:5px;}
+  @media(max-width:860px){
+    .zone-card{grid-template-columns:1fr;gap:26px;}
+    .zone-card.reverse .zone-media{order:1;}
+    .zone-card.reverse .zone-copy{order:2;}
+    .zone-list{grid-template-columns:1fr;}
+  }
+
+  /* ============ MASTER PLAN ============ */
+  .masterplan{background:var(--ivory-2);}
+  .mp-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+  .mp-copy h2{font-size:clamp(26px,3.2vw,40px);color:var(--ink);margin:16px 0 18px;}
+  .mp-copy p{color:var(--ink-soft);font-size:15.5px;max-width:460px;}
+  .mp-media{position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px -30px rgba(18,33,29,0.3);}
+  .mp-media img{width:100%;object-fit:cover;}
+  @media(max-width:860px){.mp-grid{grid-template-columns:1fr;gap:30px;}.mp-grid .mp-media{order:-1;}}
+
+  /* ============ PEACOCK LANDSCAPE SIGNATURE ============ */
+  .peacock-signature{position:relative;min-height:70vh;display:flex;align-items:flex-end;overflow:hidden;}
+  .peacock-signature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .peacock-signature .ps-overlay{
+    position:relative;z-index:2;width:100%;
+    background:linear-gradient(0deg, rgba(8,24,21,0.9) 10%, rgba(8,24,21,0.05) 65%);
+    padding:80px 0 50px;
+  }
+  .ps-overlay .eyebrow{color:var(--gold-light);margin-bottom:14px;}
+  .ps-overlay h2{font-family:var(--display);color:var(--ivory);font-size:clamp(28px,4vw,52px);max-width:720px;}
+
+  /* ============ PAYMENT PLAN ============ */
+  .payment{background:var(--emerald-2);color:var(--ivory);}
+  .plan-row{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin-bottom:26px;}
+  .plan-seg{flex:1 1 20%;min-width:120px;padding:26px 16px;text-align:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .plan-seg:last-child{border-right:none;}
+  .plan-seg .ps-pct{font-family:var(--display);font-size:34px;color:var(--gold-light);}
+  .plan-seg .ps-label{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ivory-2);opacity:.75;margin-top:8px;}
+  .plan-note{max-width:560px;color:var(--ivory-2);font-size:14.5px;}
+
+  /* ============ TRUST ============ */
+  .trust{background:var(--ivory);padding:var(--section-pad) 0;}
+  .trust-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .trust-copy h2{font-size:clamp(26px,3.4vw,42px);color:var(--ink);margin:18px 0 18px;}
+  .trust-copy p{color:var(--ink-soft);font-size:15.5px;max-width:480px;}
+  .trust-badge{border:1px solid var(--teal);padding:36px;text-align:center;}
+  .trust-badge .tb-num{font-family:var(--display);font-size:60px;color:var(--teal);line-height:1;}
+  .trust-badge .tb-label{margin-top:10px;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
+  @media(max-width:800px){.trust-inner{grid-template-columns:1fr;}}
+
+  /* ============ LOCATION ============ */
+  .location{background:var(--void);color:var(--ivory);}
+  .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;}
+  .loc-list li{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--ivory-2);}
+  .loc-list li:first-child{padding-top:0;}
+  .loc-media{border-radius:6px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px -30px rgba(0,0,0,0.5);background:#f6f1e6;}
+  .loc-media img{width:100%;object-fit:cover;}
+  .loc-caption{padding-top:16px;font-size:13px;color:var(--ivory-2);opacity:.75;}
+  @media(max-width:800px){.loc-grid{grid-template-columns:1fr;}}
+
+  /* ============ CTA / FORM ============ */
+  .cta-section{background:linear-gradient(180deg, var(--emerald) 0%, var(--void) 100%);color:var(--ivory);}
+  .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:flex-start;}
+  .cta-copy h2{font-size:clamp(28px,3.8vw,48px);margin:16px 0 18px;color:var(--ivory);}
+  .cta-copy p{color:var(--ivory-2);font-size:15.5px;max-width:440px;margin-bottom:24px;}
+  .cta-copy .cta-price{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap;}
+  .cta-price div .cp-l{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ivory-2);opacity:.7;}
+  .cta-price div .cp-v{font-family:var(--display);font-size:24px;color:var(--gold-light);margin-top:4px;}
+  .cta-contact-row{display:flex;gap:20px;flex-wrap:wrap;margin-top:30px;}
+  .cta-contact-row a{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ivory-2);border-bottom:1px solid var(--line);padding-bottom:4px;}
+  .cta-contact-row a:hover{color:var(--gold-light);}
+  .cta-contact-row svg{width:16px;height:16px;flex-shrink:0;}
+
+  .form-card{background:rgba(255,255,255,0.03);border:1px solid var(--line);padding:36px;border-radius:3px;}
+  .form-card h3{font-family:var(--display);font-size:23px;color:var(--ivory);margin-bottom:6px;}
+  .form-card .fc-sub{font-size:12.5px;color:var(--ivory-2);opacity:.75;margin-bottom:24px;}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ivory-2);opacity:.75;margin-bottom:8px;}
+  .field input,.field select{width:100%;background:transparent;border:none;border-bottom:1px solid var(--line);padding:10px 2px;color:var(--ivory);font-family:var(--body);font-size:15px;outline:none;transition:border-color .3s ease;}
+  .field select option{background:var(--emerald);color:var(--ivory);}
+  .field input::placeholder{color:rgba(246,241,230,0.35);}
+  .field input:focus,.field select:focus{border-color:var(--gold);}
+  .form-card .btn{width:100%;margin-top:8px;}
+  .form-note{font-size:11px;color:var(--ivory-2);opacity:.6;margin-top:14px;line-height:1.6;}
+  .form-success{display:none;text-align:center;padding:20px 0;}
+  .form-success.show{display:block;}
+  .form-success .fs-mark{width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+  .form-success h4{font-family:var(--display);font-size:22px;color:var(--gold-light);margin-bottom:8px;}
+  .form-success p{font-size:13px;color:var(--ivory-2);}
+  @media(max-width:900px){.cta-grid{grid-template-columns:1fr;}}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--void);color:var(--ivory-2);padding:46px 0 26px;border-top:1px solid var(--line-dark);}
+  .footer-top{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid var(--line-dark);margin-bottom:24px;}
+  .footer-logo{display:flex;flex-direction:column;gap:10px;}
+  .footer-logo img{height:32px;width:auto;}
+  .footer-contact{display:flex;flex-direction:column;gap:8px;font-size:13.5px;}
+  .footer-contact a{display:flex;align-items:center;gap:8px;}
+  .footer-contact a:hover{color:var(--gold-light);}
+  .footer-contact svg{width:14px;height:14px;flex-shrink:0;}
+  .footer-rera{font-size:11.5px;line-height:1.9;max-width:520px;}
+  .footer-rera b{color:var(--ivory-2);font-weight:500;}
+  .footer-legal{font-size:10.5px;line-height:1.8;opacity:.65;max-width:900px;}
+  .footer-bottom{display:flex;justify-content:space-between;font-size:11px;opacity:.5;margin-top:18px;flex-wrap:wrap;gap:8px;}
+
+  /* ============ MOBILE STICKY BAR ============ */
+  .sticky-bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:99;
+    background:rgba(8,24,21,0.97);backdrop-filter:blur(8px);
+    border-top:1px solid var(--line);
+    display:none;padding:10px 14px;align-items:center;justify-content:space-between;gap:10px;
+  }
+  .sticky-bar .sb-text{color:var(--ivory-2);font-size:11px;line-height:1.4;}
+  .sticky-bar .sb-text b{color:var(--gold-light);font-family:var(--display);font-size:16px;display:block;}
+  .sticky-bar .sb-actions{display:flex;gap:8px;}
+  .sticky-bar .sb-icon-btn{
+    width:40px;height:40px;border:1px solid var(--gold);border-radius:2px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .sticky-bar .sb-icon-btn svg{width:17px;height:17px;stroke:var(--gold-light);}
+  .sticky-bar .btn{padding:11px 18px;font-size:10.5px;}
+  @media(max-width:760px){
+    .sticky-bar{display:flex;}
+    body{padding-bottom:66px;}
+  }
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+    .reveal{opacity:1;transform:none;}
+  }
+
+  /* ============ GLOBAL MOBILE TUNING ============ */
+  @media(max-width:600px){
+    :root{--edge:18px;}
+    .stats-grid{grid-template-columns:1fr 1fr;}
+    .stat-item{padding:14px 16px;}
+    .price-cell{padding:16px 16px;flex:1 1 100%;border-right:none;}
+    .price-cell:not(:last-child){border-bottom:1px solid var(--line);}
+    .plan-seg{flex:1 1 50%;}
+    .hero-feather{width:70vw;top:2%;opacity:.5;}
+    .hero{padding-top:calc(var(--topbar-h) + 76px);}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP UTILITY BAR ============ -->
+<div class="topbar">
+  <div class="wrap">
+    <span class="tb-brand">Gaur Alaris — Codename: Plume</span>
+    <div class="tb-contact">
+      <a class="tb-call" href="tel:+919811733844">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.99.36 1.96.68 2.89a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.19-1.19a2 2 0 012.11-.45 12.7 12.7 0 002.89.68A2 2 0 0122 16.92z"/></svg>
+        98117 33844
+      </a>
+      <a class="tb-email" href="mailto:kutumbrealtech@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+        kutumbrealtech@gmail.com
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">
+      <img src="images/gaurs-logo.png" alt="Gaurs — Your Own World">
+    </a>
+    <nav class="nav-links">
+      <a href="#perspective">Overview</a>
+      <a href="#residences">Residences</a>
+      <a href="#club">Club Regalia</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#location">Location</a>
+      <a href="#enquire">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#enquire" class="btn btn-solid"><span class="btn-text-full">Book Now</span></a>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#perspective">Overview</a>
+  <a href="#residences">Residences</a>
+  <a href="#club">Club Regalia</a>
+  <a href="#amenities">Amenities</a>
+  <a href="#location">Location</a>
+  <a href="#enquire">Contact</a>
+  <a href="#enquire" class="btn btn-solid mm-cta">Book Now</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero on-dark" id="top">
+  <div class="hero-feather" aria-hidden="true">
+    <svg viewBox="0 0 500 700" fill="none">
+      <path class="feather-stroke" d="M250 20 C 320 120, 360 260, 340 400 C 330 470, 300 540, 250 640" />
+      <path class="feather-stroke" d="M250 20 C 180 120, 140 260, 160 400 C 170 470, 200 540, 250 640" />
+      <path class="feather-stroke" style="animation-delay:.6s" d="M250 60 C 290 130, 310 220, 300 310" />
+      <path class="feather-stroke" style="animation-delay:.6s" d="M250 60 C 210 130, 190 220, 200 310" />
+      <ellipse class="feather-eye-ring" cx="250" cy="140" rx="60" ry="80"/>
+      <ellipse class="feather-eye-ring" cx="250" cy="140" rx="34" ry="48"/>
+      <circle cx="250" cy="140" r="10" fill="#2d6e70" opacity=".5"/>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-brand-row">
+      <span class="hb-project">GAUR ALARIS</span>
+      <span class="hb-sep">—</span>
+      <span class="hb-tag">A Home Framed By Extraordinary Views</span>
+    </div>
+
+    <div class="hero-codename-block">
+      <span class="cn-label">Introducing · Codename</span>
+      <span class="cn-name">Plume</span>
+    </div>
+
+    <p class="hero-tagline">Some homes offer space. <b>Others offer a perspective that changes the way you live.</b> 3 &amp; 4 BHK bespoke residences at Sector 22-D, Yamuna Expressway.</p>
+
+    <div class="hero-cta-row">
+      <a href="#enquire" class="btn btn-solid">Book Your Appointment</a>
+      <a href="#residences" class="btn btn-ghost">View Residences</a>
+    </div>
+
+    <div class="hero-price-strip">
+      <div class="price-cell">
+        <div class="pc-label">Pre-Launch Price</div>
+        <div class="pc-value">₹8,499<span class="pc-unit">/ sq.ft.*</span></div>
+      </div>
+      <div class="price-cell">
+        <div class="pc-label">Launch Price</div>
+        <div class="pc-value"><span class="pc-strike">₹12,000</span><span class="pc-unit">/ sq.ft.*</span></div>
+      </div>
+      <div class="price-cell">
+        <div class="pc-label">Location</div>
+        <div class="pc-value" style="font-size:17px;">Sector 22-D, Yamuna Expressway</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll"><span class="line"></span>Scroll</div>
+</section>
+
+<!-- ============ PERSPECTIVE ============ -->
+<section class="perspective on-light" id="perspective">
+  <div class="wrap">
+    <div class="persp-grid">
+      <div class="persp-copy reveal">
+        <span class="eyebrow">The View, Reframed</span>
+        <h2>Every window is composed like a photograph you never have to take twice.</h2>
+        <p>Plume sits where the Yamuna Expressway meets an open, uncrowded skyline — minutes from Noida International Airport, yet held back from the noise of it.</p>
+        <p>The residences are set to catch first light across the horizon and hold it through the evening, so the view is never a backdrop. It's the reason you're home.</p>
+      </div>
+      <div class="persp-visual reveal">
+        <img src="images/tower-render.jpg" alt="Gaur Alaris towers, aerial view">
+        <span class="img-tag">Artist's Impression</span>
+        <div class="frame-text">
+          <span class="ft-eyebrow">Sector 22-D · Yamuna Expressway</span>
+          <span class="ft-main">Four towers, one rare skyline.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESIDENCES ============ -->
+<section class="configs section" id="residences">
+  <div class="wrap">
+    <div class="section-head on-dark reveal">
+      <span class="eyebrow">Residences</span>
+      <h2>3 &amp; 4 BHK Bespoke Residences</h2>
+      <p>Spacious configurations designed by Hafeez Contractor, set across 11.8 acres of master-planned green landscape.</p>
+    </div>
+
+    <div class="tower-banner reveal">
+      <img src="images/tower-render.jpg" alt="Gaur Alaris towers with landscaped podium"><span class="img-tag">Artist's Impression</span>
+      <div class="tb-overlay"><span class="tb-caption">11.8 acres of landscaped living, four towers wide.</span></div>
+    </div>
+
+    <div class="config-grid">
+      <div class="config-card reveal">
+        <div class="cc-top">
+          <div class="cc-bhk">3 BHK</div>
+          <div class="cc-tag">Bespoke Residence</div>
+        </div>
+        <p>A generous three-bedroom layout with framed views and room to breathe, built for families who want space without excess.</p>
+        <div class="cc-area"><span>Carpet + Balcony Area</span><b>1,550 sq. ft.</b></div>
+      </div>
+      <div class="config-card reveal">
+        <div class="cc-top">
+          <div class="cc-bhk">4 BHK</div>
+          <div class="cc-tag">Bespoke Residence</div>
+        </div>
+        <p>The four-bedroom residence adds a dedicated space for work, guests, or quiet — scaled for a fuller life at the same address.</p>
+        <div class="cc-area"><span>Carpet + Balcony Area</span><b>1,950 sq. ft.</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARCHITECT ============ -->
+<section class="architect">
+  <div class="wrap">
+    <div class="architect-inner reveal">
+      <div class="architect-mark">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#1c5a54" stroke-width="1.2">
+          <path d="M20 4 L20 36 M8 14 L32 14 M8 26 L32 26"/>
+          <circle cx="20" cy="20" r="16"/>
+        </svg>
+      </div>
+      <div class="architect-text">
+        <span class="eyebrow" style="color:var(--teal);">Design &amp; Planning</span>
+        <h3>Designed by world-renowned architect Hafeez Contractor.</h3>
+        <p>Every elevation, lobby, and residence layout at Plume has been planned to a single brief — light, proportion, and a sense of arrival that carries through from the gate to the front door.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="st-num">11.8 Acres*</div>
+        <div class="st-label">Thoughtfully planned development</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="st-num">~1,00,000 sq.ft*</div>
+        <div class="st-label">Club Regalia — grand clubhouse</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="st-num">65+</div>
+        <div class="st-label">Curated premium amenities</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="st-num">30+ Yrs</div>
+        <div class="st-label">Of trust and excellence from Gaurs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLUB REGALIA ============ -->
+<section class="club section" id="club">
+  <div class="wrap">
+    <div class="section-head on-dark reveal">
+      <span class="eyebrow">One Club. Five Distinct Experiences.</span>
+      <h2>Club Regalia</h2>
+      <p>Where leisure spreads its wings — across five levels and five distinct zones, Club Regalia turns everyday leisure into a journey of discovery, connection and wellbeing.</p>
+    </div>
+
+    <div class="club-hero reveal">
+      <img src="images/club-regalia-2.jpg" alt="Club Regalia clubhouse exterior at dusk">
+      <span class="img-tag">Artist's Impression</span>
+      <div class="ch-overlay">
+        <span class="ch-title">Where Leisure Spreads Its Wings</span>
+        <span class="ch-num">1,00,000 sq.ft.* of grandeur</span>
+      </div>
+    </div>
+
+    <div class="club-grid reveal">
+      <div class="cg-media">
+        <img src="images/club-regalia-1.jpg" alt="Club Regalia clubhouse by the water, artist's impression">
+        <span class="img-tag">Artist's Impression</span>
+      </div>
+      <ul class="club-list">
+        <li><span class="plume-mark"></span> 1,00,000 sq.ft.* (9,290 sq.mt.) clubhouse — 85,000 sq.ft. BUA + 15,000 sq.ft. terrace area</li>
+        <li><span class="plume-mark"></span> One of Yamuna Expressway's largest clubhouses</li>
+        <li><span class="plume-mark"></span> 5 levels of curated experiences</li>
+        <li><span class="plume-mark"></span> Designed for every generation of the family</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AMENITY ZONES ============ -->
+<section class="amenities section" id="amenities">
+  <div class="wrap">
+    <div class="section-head on-light reveal">
+      <span class="eyebrow">Resort-Style Living</span>
+      <h2>65+ premium amenities, curated for a slower kind of luxury</h2>
+      <p>From the water to the wellness deck, every shared space at Plume is planned zone by zone for a life that's unhurried and effortlessly maintained.</p>
+    </div>
+
+    <div class="zone-card reveal">
+      <div class="zone-media"><img src="images/aqua-zone.jpg" alt="Aqua Zone — leisure and lap pools"><span class="img-tag">Artist's Impression</span></div>
+      <div class="zone-copy">
+        <span class="eyebrow" style="color:var(--teal);margin-bottom:12px;">Zone 01</span>
+        <h3 class="zc-title">Aqua Zone</h3>
+        <ul class="zone-list">
+          <li><span class="plume-mark"></span>Splash Pad Kids Pool</li>
+          <li><span class="plume-mark"></span>Jacuzzi Bubble Pool</li>
+          <li><span class="plume-mark"></span>Leisure Pool</li>
+          <li><span class="plume-mark"></span>Pool Promenade Plaza</li>
+          <li><span class="plume-mark"></span>Lazy Pool</li>
+          <li><span class="plume-mark"></span>Lap Pool</li>
+          <li><span class="plume-mark"></span>Pool Deck</li>
+          <li><span class="plume-mark"></span>Pool Feather Pavilion</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="zone-card reverse reveal">
+      <div class="zone-media"><img src="images/sports-zone-1.jpg" alt="Sports Zone — jogging track and play courts"><span class="img-tag">Artist's Impression</span></div>
+      <div class="zone-copy">
+        <span class="eyebrow" style="color:var(--teal);margin-bottom:12px;">Zone 02</span>
+        <h3 class="zc-title">Sports Zone</h3>
+        <ul class="zone-list">
+          <li><span class="plume-mark"></span>Multi-purpose Play Court</li>
+          <li><span class="plume-mark"></span>Cricket Pitch &amp; Smash Cricket</li>
+          <li><span class="plume-mark"></span>2 Badminton Courts</li>
+          <li><span class="plume-mark"></span>2 Squash Courts</li>
+          <li><span class="plume-mark"></span>Pickleball Courts</li>
+          <li><span class="plume-mark"></span>Jogging &amp; Skating Track</li>
+          <li><span class="plume-mark"></span>Fitness Station</li>
+          <li><span class="plume-mark"></span>Family Picnic Lawn</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="zone-card reveal">
+      <div class="zone-media"><img src="images/wellness-zone.jpg" alt="Wellness Zone — heated pool and spa"><span class="img-tag">Artist's Impression</span></div>
+      <div class="zone-copy">
+        <span class="eyebrow" style="color:var(--teal);margin-bottom:12px;">Zone 03</span>
+        <h3 class="zc-title">Wellness Zone</h3>
+        <ul class="zone-list">
+          <li><span class="plume-mark"></span>Heated Pool</li>
+          <li><span class="plume-mark"></span>Ice / Cold Bath</li>
+          <li><span class="plume-mark"></span>Wellness Lounge &amp; Spa</li>
+          <li><span class="plume-mark"></span>Salon</li>
+          <li><span class="plume-mark"></span>Gymnasium, Kicking &amp; Boxing Room</li>
+          <li><span class="plume-mark"></span>Yoga / Zumba / Pilates Room</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="zone-card reverse reveal">
+      <div class="zone-media"><img src="images/social-zone-1.jpg" alt="Social Zone — dining and banquet spaces"><span class="img-tag">Artist's Impression</span></div>
+      <div class="zone-copy">
+        <span class="eyebrow" style="color:var(--teal);margin-bottom:12px;">Zone 04</span>
+        <h3 class="zc-title">Social Zone</h3>
+        <ul class="zone-list">
+          <li><span class="plume-mark"></span>Banquet Hall &amp; Party Hall</li>
+          <li><span class="plume-mark"></span>Restaurant</li>
+          <li><span class="plume-mark"></span>Celebration Activity Lawn</li>
+          <li><span class="plume-mark"></span>Barbecue Pavilion</li>
+          <li><span class="plume-mark"></span>Rain Amphitheater</li>
+          <li><span class="plume-mark"></span>Senior Citizens &amp; Pet Pavilion</li>
+          <li><span class="plume-mark"></span>Creche &amp; Business Centre</li>
+          <li><span class="plume-mark"></span>Prayer Hall</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="zone-card reveal">
+      <div class="zone-media"><img src="images/entertainment-zone.jpg" alt="Entertainment Zone — mini theatre and games room"><span class="img-tag">Artist's Impression</span></div>
+      <div class="zone-copy">
+        <span class="eyebrow" style="color:var(--teal);margin-bottom:12px;">Zone 05</span>
+        <h3 class="zc-title">Entertainment Zone</h3>
+        <ul class="zone-list">
+          <li><span class="plume-mark"></span>Mini Theatre</li>
+          <li><span class="plume-mark"></span>Arcade Junction &amp; Bowling Alley</li>
+          <li><span class="plume-mark"></span>Billiards &amp; Card Room</li>
+          <li><span class="plume-mark"></span>Air Hockey &amp; Foosball</li>
+          <li><span class="plume-mark"></span>Karaoke &amp; Music Room</li>
+          <li><span class="plume-mark"></span>Virtual Game Simulator</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="zone-card reverse reveal">
+      <div class="zone-media"><img src="images/terrace-zone.jpg" alt="Terrace Amenity Zone — sky veranda at sunset"><span class="img-tag">Artist's Impression</span></div>
+      <div class="zone-copy">
+        <span class="eyebrow" style="color:var(--teal);margin-bottom:12px;">Zone 06</span>
+        <h3 class="zc-title">Terrace Amenity Zone</h3>
+        <ul class="zone-list">
+          <li><span class="plume-mark"></span>Sky Veranda</li>
+          <li><span class="plume-mark"></span>Sky Breeze Pavilion</li>
+          <li><span class="plume-mark"></span>Horizon Viewing Deck</li>
+          <li><span class="plume-mark"></span>Terrace Lawn</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MASTER PLAN ============ -->
+<section class="masterplan section">
+  <div class="wrap">
+    <div class="mp-grid">
+      <div class="mp-copy reveal">
+        <span class="eyebrow" style="color:var(--teal);">Master Plan</span>
+        <h2>Two landscapes. One rare view.</h2>
+        <p>At Gaur Alaris, select residences enjoy the privilege of looking upon two signature landscapes — creating an everyday experience that's as rare as it is breathtaking.</p>
+      </div>
+      <div class="mp-media reveal">
+        <img src="images/master-plan.jpg" alt="Gaur Alaris master plan — two landscaped courtyards"><span class="img-tag">Site Plan — Not to Scale</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PEACOCK SIGNATURE ============ -->
+<section class="peacock-signature reveal">
+  <img src="images/peacock-landscape.jpg" alt="8 acres of peacock-inspired landscape greens at night"><span class="img-tag">Artist's Impression</span>
+  <div class="ps-overlay">
+    <div class="wrap">
+      <span class="eyebrow">Landscape Design</span>
+      <h2>8 acres of peacock-inspired landscape greens, where beauty unfurls.</h2>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAYMENT PLAN ============ -->
+<section class="payment section">
+  <div class="wrap">
+    <div class="section-head on-dark reveal">
+      <span class="eyebrow">Payment Plan</span>
+      <h2>Smart 20 × 5 Payment Plan</h2>
+      <p class="plan-note">Pay in five structured instalments of 20% each — designed for flexibility and ease, so you commit at your own pace.</p>
+    </div>
+    <div class="plan-row reveal">
+      <div class="plan-seg"><div class="ps-pct">20%</div><div class="ps-label">On Booking</div></div>
+      <div class="plan-seg"><div class="ps-pct">20%</div><div class="ps-label">Instalment 2</div></div>
+      <div class="plan-seg"><div class="ps-pct">20%</div><div class="ps-label">Instalment 3</div></div>
+      <div class="plan-seg"><div class="ps-pct">20%</div><div class="ps-label">Instalment 4</div></div>
+      <div class="plan-seg"><div class="ps-pct">20%</div><div class="ps-label">On Offer of Possession</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-inner">
+      <div class="trust-copy reveal">
+        <span class="eyebrow" style="color:var(--teal);">The Developer</span>
+        <h2>From a developer with 30+ years of trust and excellence.</h2>
+        <p>Gaurs has spent three decades building homes across the Delhi-NCR region — and Plume is planned as one of its most ambitious residential addresses yet, backed by the same commitment to quality and delivery.</p>
+      </div>
+      <div class="trust-badge reveal">
+        <div class="tb-num">30+</div>
+        <div class="tb-label">Years of Trust &amp; Excellence</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCATION ============ -->
+<section class="location section" id="location">
+  <div class="wrap">
+    <div class="loc-grid">
+      <div class="reveal">
+        <span class="eyebrow">Location</span>
+        <h2 style="font-size:clamp(26px,3.4vw,42px);margin:16px 0 22px;">Positioned at the edge of what's next.</h2>
+        <ul class="loc-list">
+          <li><span class="plume-mark"></span> Sector 22-D, Yamuna Expressway</li>
+          <li><span class="plume-mark"></span> Minutes from Noida International Airport</li>
+          <li><span class="plume-mark"></span> Close to Jaypee Sports City &amp; Gautam Buddha University</li>
+          <li><span class="plume-mark"></span> Proposed Metro Station &amp; Film City nearby</li>
+          <li><span class="plume-mark"></span> Seamless connectivity along the Yamuna Expressway corridor</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="loc-media">
+          <img src="images/location-map.jpg" alt="Gaur Alaris location map — Yamuna Expressway">
+        </div>
+        <p class="loc-caption">Gaur Alaris — Sector 22-D, Yamuna Expressway, near Noida International Airport</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA / FORM ============ -->
+<section class="cta-section section" id="enquire">
+  <div class="wrap">
+    <div class="cta-grid">
+      <div class="cta-copy reveal">
+        <span class="eyebrow">The Wait Is Over</span>
+        <h2>Book now and avail pre-launch benefits.</h2>
+        <p>RERA registered. Limited premium residences available at Sector 22-D, Yamuna Expressway. Leave your details and our team will get in touch with pricing, floor plans, and the full brochure.</p>
+        <div class="cta-price">
+          <div><div class="cp-l">Pre-Launch Price</div><div class="cp-v">₹8,499/sq.ft.*</div></div>
+          <div><div class="cp-l">3 BHK</div><div class="cp-v">1,550 sq.ft.</div></div>
+          <div><div class="cp-l">4 BHK</div><div class="cp-v">1,950 sq.ft.</div></div>
+        </div>
+        <div class="cta-contact-row">
+          <a href="tel:+919811733844">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.99.36 1.96.68 2.89a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.19-1.19a2 2 0 012.11-.45 12.7 12.7 0 002.89.68A2 2 0 0122 16.92z"/></svg>
+            +91 98117 33844
+          </a>
+          <a href="mailto:kutumbrealtech@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+            kutumbrealtech@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <div id="formStep">
+          <h3>Book Your Appointment</h3>
+          <p class="fc-sub">Share your details — we'll reach out with the brochure and pricing.</p>
+          <form id="enquiryForm">
+            <div class="field">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" placeholder="Enter your name" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+91 00000 00000" required>
+            </div>
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="you@example.com">
+            </div>
+            <div class="field">
+              <label for="config">Interested In</label>
+              <select id="config">
+                <option value="3 BHK — 1,550 sq.ft.">3 BHK — 1,550 sq.ft.</option>
+                <option value="4 BHK — 1,950 sq.ft.">4 BHK — 1,950 sq.ft.</option>
+                <option value="Not sure yet">Not sure yet</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-solid">Request Callback</button>
+            <p class="form-note">By submitting, you agree to be contacted by our sales team regarding Gaur Alaris. This is not an advertisement, invitation to offer, or an offer for sale.</p>
+          </form>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="fs-mark">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c9a45c" stroke-width="1.6"><path d="M4 12l6 6L20 6"/></svg>
+          </div>
+          <h4>Thank you</h4>
+          <p>Our team will reach out shortly with the full brochure and pricing details.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="images/gaurs-logo.png" alt="Gaurs — Your Own World">
+        <div class="footer-contact">
+          <a href="tel:+919811733844">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.99.36 1.96.68 2.89a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.19-1.19a2 2 0 012.11-.45 12.7 12.7 0 002.89.68A2 2 0 0122 16.92z"/></svg>
+            +91 98117 33844
+          </a>
+          <a href="mailto:kutumbrealtech@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+            kutumbrealtech@gmail.com
+          </a>
+        </div>
+      </div>
+      <div class="footer-rera">
+        <b>RERA No.:</b> UPRERAPRJ950965/07/2026 &nbsp;·&nbsp; <a href="https://up-rera.in/projects" target="_blank" rel="noopener">up-rera.in/projects</a><br>
+        <b>Collection Account:</b> Gaursons India Pvt Ltd Collection A/c – Gaur Alaris (Phase 1)<br>
+        <b>Account No.:</b> 57500001944130 &nbsp;·&nbsp; <b>Bank:</b> HDFC Bank Limited &nbsp;·&nbsp; <b>IFSC:</b> HDFC0002649<br>
+        <b>Bank Address:</b> C/25, Stellar IT Park, Sector-62, Greater Noida, Uttar Pradesh, 201306 &nbsp;·&nbsp; <b>Launch Date:</b> 28-07-2026
+      </div>
+    </div>
+    <p class="footer-legal">
+      This is not an advertisement, invitation to offer, or an offer for sale. All images, layouts, and renders are artist's impressions for representational purposes only and may vary from actuals. Areas, prices, and specifications mentioned are indicative, subject to change, and governed by the terms of the Agreement to Sell / Application Form. *T&amp;C Apply.
+    </p>
+    <div class="footer-bottom">
+      <span>© 2026 Gaursons India Pvt Ltd. All rights reserved.</span>
+      <span>Sector 22-D, Yamuna Expressway, Near Noida International Airport</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MOBILE STICKY BAR ============ -->
+<div class="sticky-bar">
+  <div class="sb-text">Pre-Launch Price<b>₹8,499/sq.ft.*</b></div>
+  <div class="sb-actions">
+    <a href="tel:+919811733844" class="sb-icon-btn" aria-label="Call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.99.36 1.96.68 2.89a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.19-1.19a2 2 0 012.11-.45 12.7 12.7 0 002.89.68A2 2 0 0122 16.92z"/></svg>
+    </a>
+    <a href="#enquire" class="btn btn-solid">Book Now</a>
+  </div>
+</div>
+
+<script>
+  // top bar + nav offset on scroll
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive:true });
+
+  // mobile menu
+  const burger = document.getElementById('navBurger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function closeMenu(){ burger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+  burger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    burger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  // reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // enquiry form
+  const form = document.getElementById('enquiryForm');
+  const formStep = document.getElementById('formStep');
+  const formSuccess = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('fullName').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const config = document.getElementById('config').value;
+
+    const SALES_WHATSAPP_NUMBER = "919811733844";
+    const message = `New Enquiry — Gaur Alaris (Plume)%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AEmail: ${encodeURIComponent(email || 'Not provided')}%0AInterested In: ${encodeURIComponent(config)}`;
+    const waLink = `https://wa.me/${SALES_WHATSAPP_NUMBER}?text=${message}`;
+
+    formStep.style.display = 'none';
+    formSuccess.classList.add('show');
+
+    window.open(waLink, '_blank');
+  });
+</script>
+
+</body>
+</html>
