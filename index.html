@@ -134,7 +134,7 @@
     text-overflow:ellipsis;
   }
   .topbar .tb-contact{display:flex;align-items:center;gap:18px;flex-shrink:0;}
-  .topbar .tb-contact a{display:flex;align-items:center;gap:6px;font-size:12px;white-space:nowrap;}
+  .topbar .tb-contact a{display:flex;align-items:center;gap:6px;font-size:14px;white-space:nowrap;}
   .topbar .tb-contact a:hover{color:var(--gold-light);}
   .topbar .tb-contact svg{width:13px;height:13px;flex-shrink:0;}
   @media(max-width:760px){
@@ -214,11 +214,11 @@
   @media(max-width:900px){
     .nav-links{display:none;}
     .nav-burger{display:flex;}
-    .nav-cta .btn{padding:11px 18px;font-size:11px;}
+    .nav-cta .btn{padding:11px 18px;font-size:10px;}
   }
-  @media(max-width:400px){
+  /* @media(max-width:400px){
     .nav-cta .btn span.btn-text-full{display:none;}
-  }
+  } */
 
   /* ============ HERO ============ */
   .hero{
@@ -226,18 +226,35 @@
     min-height:100svh;
     display:flex;
     align-items:center;
-    background:
-      radial-gradient(ellipse 90% 60% at 75% 10%, rgba(45,110,112,0.35), transparent 60%),
-      linear-gradient(180deg, var(--void) 0%, #0a201c 55%, var(--emerald) 100%);
     color:var(--ivory);
     overflow:hidden;
     padding-top:calc(var(--topbar-h) + 100px);
     padding-bottom:70px;
   }
+  .hero-bg{
+    position:absolute;
+    inset:-8% 0;
+    z-index:0;
+    overflow:hidden;
+  }
+  .hero-bg img{
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:center 35%;
+    transform:translateY(0);
+    will-change:transform;
+  }
+  .hero-overlay{
+    position:absolute;inset:0;z-index:1;
+    background:
+      radial-gradient(ellipse 90% 60% at 75% 10%, rgba(45, 110, 112, 0.838), transparent 60%),
+      linear-gradient(180deg, rgba(8, 24, 21, 0.795) 0%, rgba(10, 32, 28, 0.708) 45%, rgba(14, 43, 38, 0.758) 100%);
+  }
   .hero-feather{
     position:absolute;right:-8%;top:6%;
     width:min(56vw, 680px);
     opacity:.85;pointer-events:none;
+    z-index:1;
   }
   .hero-feather svg{width:100%;height:auto;}
   .feather-stroke{
@@ -490,7 +507,7 @@
   .loc-list li:first-child{padding-top:0;}
   .loc-media{border-radius:6px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px -30px rgba(0,0,0,0.5);background:#f6f1e6;}
   .loc-media img{width:100%;object-fit:cover;}
-  .loc-caption{padding-top:16px;font-size:13px;color:var(--ivory-2);opacity:.75;}
+  .loc-caption{padding-top:16px;font-size:14px;color:var(--ivory-2);opacity:.75;}
   @media(max-width:800px){.loc-grid{grid-template-columns:1fr;}}
 
   /* ============ CTA / FORM ============ */
@@ -578,6 +595,62 @@
     .hero-feather{width:70vw;top:2%;opacity:.5;}
     .hero{padding-top:calc(var(--topbar-h) + 76px);}
   }
+
+  /* ============ ENQUIRY MODAL (POPUP FORM) ============ */
+.modal-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(8,24,21,0.78);
+  backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  opacity:0;visibility:hidden;
+  transition:opacity .3s ease, visibility .3s ease;
+}
+.modal-overlay.open{opacity:1;visibility:visible;}
+.modal-box{
+  position:relative;width:100%;max-width:440px;max-height:90vh;overflow-y:auto;
+  background:var(--emerald);border:1px solid var(--line);border-radius:6px;
+  padding:40px 34px;transform:translateY(24px);
+  transition:transform .35s ease;
+  box-shadow:0 60px 130px -40px rgba(0,0,0,0.7);
+}
+.modal-overlay.open .modal-box{transform:translateY(0);}
+.modal-close{
+  position:absolute;top:14px;right:14px;width:34px;height:34px;
+  border:1px solid var(--line);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--ivory-2);
+}
+.modal-close:hover{border-color:var(--gold);color:var(--gold-light);}
+.modal-box .eyebrow{margin-bottom:10px;}
+.modal-box h3{font-family:var(--display);font-size:25px;color:var(--ivory);margin:8px 0 6px;}
+.modal-box .fc-sub{font-size:12.5px;color:var(--ivory-2);opacity:.75;margin-bottom:22px;}
+
+/* ============ PRICING CARD CTA ============ */
+.cc-cta{width:100%;justify-content:center;margin-top:18px;}
+.cc-teaser{font-size:11.5px;color:var(--ivory-2);opacity:.65;margin-top:10px;text-align:center;}
+
+/* ============ ZONE TEASER LINE ============ */
+.zone-teaser{
+  margin-top:14px;font-size:13px;color:var(--teal);
+  display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+  border-bottom:1px solid rgba(28,90,84,0.35);padding-bottom:2px;
+}
+.zone-teaser:hover{color:var(--gold);border-color:var(--gold);}
+
+/* ============ FLOATING WHATSAPP BUTTON ============ */
+.wa-float{
+  position:fixed;right:22px;bottom:26px;z-index:95;
+  width:56px;height:56px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 16px 34px -10px rgba(0,0,0,0.55);
+  transition:transform .3s ease;
+}
+.wa-float:hover{transform:scale(1.08);}
+.wa-float svg{width:28px;height:28px;fill:#fff;}
+@media(max-width:760px){
+  .wa-float{bottom:88px;right:16px;width:50px;height:50px;}
+  .wa-float svg{width:24px;height:24px;}
+}
 </style>
 </head>
 <body>
@@ -591,10 +664,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.99.36 1.96.68 2.89a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.19-1.19a2 2 0 012.11-.45 12.7 12.7 0 002.89.68A2 2 0 0122 16.92z"/></svg>
         98117 33844
       </a>
-      <a class="tb-email" href="mailto:kutumbrealtech@gmail.com">
+      <!-- <a class="tb-email" href="mailto:kutumbrealtech@gmail.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
         kutumbrealtech@gmail.com
-      </a>
+      </a> -->
     </div>
   </div>
 </div>
@@ -614,7 +687,11 @@
       <a href="#enquire">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a href="#enquire" class="btn btn-solid"><span class="btn-text-full">Book Now</span></a>
+      <a href="javascript:void(0)" class="btn btn-solid js-open-modal"
+         data-title="Book Your Appointment"
+         data-eyebrow="Pre-Launch Access"
+         data-sub="Share your details — our team will call you with pricing, floor plans and preferred viewing slots."
+         data-success="Thank you — our team will reach out shortly."><span class="btn-text-full">Book Now</span></a>
       <button class="nav-burger" id="navBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -627,12 +704,20 @@
   <a href="#amenities">Amenities</a>
   <a href="#location">Location</a>
   <a href="#enquire">Contact</a>
-  <a href="#enquire" class="btn btn-solid mm-cta">Book Now</a>
+  <a href="javascript:void(0)" class="btn btn-solid mm-cta js-open-modal"
+     data-title="Book Your Appointment"
+     data-eyebrow="Pre-Launch Access"
+     data-sub="Share your details — our team will call you with pricing, floor plans and preferred viewing slots."
+     data-success="Thank you — our team will reach out shortly.">Book Now</a>
 </div>
 
 <!-- ============ HERO ============ -->
 <section class="hero on-dark" id="top">
-  <div class="hero-feather" aria-hidden="true">
+  <div class="hero-bg" id="heroBg">
+    <img src="images/hero-bg.jpeg" alt="Gaur Alaris — peacock-inspired landscape at night" id="heroBgImg">
+  </div>
+  <div class="hero-overlay"></div>
+  <!-- <div class="hero-feather" aria-hidden="true">
     <svg viewBox="0 0 500 700" fill="none">
       <path class="feather-stroke" d="M250 20 C 320 120, 360 260, 340 400 C 330 470, 300 540, 250 640" />
       <path class="feather-stroke" d="M250 20 C 180 120, 140 260, 160 400 C 170 470, 200 540, 250 640" />
@@ -642,7 +727,7 @@
       <ellipse class="feather-eye-ring" cx="250" cy="140" rx="34" ry="48"/>
       <circle cx="250" cy="140" r="10" fill="#2d6e70" opacity=".5"/>
     </svg>
-  </div>
+  </div> -->
 
   <div class="hero-inner">
     <div class="hero-brand-row">
@@ -659,7 +744,11 @@
     <p class="hero-tagline">Some homes offer space. <b>Others offer a perspective that changes the way you live.</b> 3 &amp; 4 BHK bespoke residences at Sector 22-D, Yamuna Expressway.</p>
 
     <div class="hero-cta-row">
-      <a href="#enquire" class="btn btn-solid">Book Your Appointment</a>
+      <a href="javascript:void(0)" class="btn btn-solid js-open-modal"
+         data-title="Book Your Appointment"
+         data-eyebrow="Pre-Launch Access"
+         data-sub="Share your details — our team will call you with pricing, floor plans and preferred viewing slots."
+         data-success="Thank you — our team will reach out shortly.">Book Your Appointment</a>
       <a href="#residences" class="btn btn-ghost">View Residences</a>
     </div>
 
@@ -691,6 +780,14 @@
         <h2>Every window is composed like a photograph you never have to take twice.</h2>
         <p>Plume sits where the Yamuna Expressway meets an open, uncrowded skyline — minutes from Noida International Airport, yet held back from the noise of it.</p>
         <p>The residences are set to catch first light across the horizon and hold it through the evening, so the view is never a backdrop. It's the reason you're home.</p>
+        <a href="javascript:void(0)" class="btn btn-ghost on-light js-open-modal" style="margin-top:6px;"
+           data-title="Download the Brochure"
+           data-eyebrow="Full Details Inside"
+           data-sub="Share your details and we'll send the complete brochure — floor plans, pricing tiers and payment options."
+           data-success="Thank you — the brochure is on its way to your phone/inbox shortly.">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+          Download Brochure
+        </a>
       </div>
       <div class="persp-visual reveal">
         <img src="images/tower-render.jpg" alt="Gaur Alaris towers, aerial view">
@@ -714,7 +811,7 @@
     </div>
 
     <div class="tower-banner reveal">
-      <img src="images/tower-render.jpg" alt="Gaur Alaris towers with landscaped podium"><span class="img-tag">Artist's Impression</span>
+      <!-- <img src="images/tower-render.jpg" alt="Gaur Alaris towers with landscaped podium"><span class="img-tag">Artist's Impression</span> -->
       <div class="tb-overlay"><span class="tb-caption">11.8 acres of landscaped living, four towers wide.</span></div>
     </div>
 
@@ -725,7 +822,12 @@
           <div class="cc-tag">Bespoke Residence</div>
         </div>
         <p>A generous three-bedroom layout with framed views and room to breathe, built for families who want space without excess.</p>
-        <div class="cc-area"><span>Carpet + Balcony Area</span><b>1,550 sq. ft.</b></div>
+        <div class="cc-area"><span>Super + Balcony Area</span><b>1,550 sq. ft.</b></div>
+        <button class="btn btn-solid cc-cta js-open-modal"
+           data-config="3 BHK — 1,550 sq.ft."
+           data-title="Get the Best Pre-Launch Price"
+           data-eyebrow="3 BHK Residence">Get Best Price</button>
+        <p class="cc-teaser">Full floor plan &amp; payment plan on request</p>
       </div>
       <div class="config-card reveal">
         <div class="cc-top">
@@ -733,7 +835,12 @@
           <div class="cc-tag">Bespoke Residence</div>
         </div>
         <p>The four-bedroom residence adds a dedicated space for work, guests, or quiet — scaled for a fuller life at the same address.</p>
-        <div class="cc-area"><span>Carpet + Balcony Area</span><b>1,950 sq. ft.</b></div>
+        <div class="cc-area"><span>Super + Balcony Area</span><b>1,950 sq. ft.</b></div>
+        <button class="btn btn-solid cc-cta js-open-modal"
+           data-config="4 BHK — 1,950 sq.ft."
+           data-title="Get the Best Pre-Launch Price"
+           data-eyebrow="4 BHK Residence">Get Best Price</button>
+        <p class="cc-teaser">Full floor plan &amp; payment plan on request</p>
       </div>
     </div>
   </div>
@@ -792,7 +899,7 @@
     </div>
 
     <div class="club-hero reveal">
-      <img src="images/club-regalia-2.jpg" alt="Club Regalia clubhouse exterior at dusk">
+      <img src="images/club-regalia-2.jpeg" alt="Club Regalia clubhouse exterior at dusk">
       <span class="img-tag">Artist's Impression</span>
       <div class="ch-overlay">
         <span class="ch-title">Where Leisure Spreads Its Wings</span>
@@ -832,13 +939,14 @@
         <ul class="zone-list">
           <li><span class="plume-mark"></span>Splash Pad Kids Pool</li>
           <li><span class="plume-mark"></span>Jacuzzi Bubble Pool</li>
-          <li><span class="plume-mark"></span>Leisure Pool</li>
-          <li><span class="plume-mark"></span>Pool Promenade Plaza</li>
-          <li><span class="plume-mark"></span>Lazy Pool</li>
-          <li><span class="plume-mark"></span>Lap Pool</li>
-          <li><span class="plume-mark"></span>Pool Deck</li>
+          <li><span class="plume-mark"></span>Leisure &amp; Lap Pools</li>
           <li><span class="plume-mark"></span>Pool Feather Pavilion</li>
         </ul>
+        <a href="javascript:void(0)" class="zone-teaser js-open-modal"
+           data-title="Full Amenities List"
+           data-eyebrow="Aqua Zone &amp; More"
+           data-sub="Get the complete 65+ amenities list, floor plans and pre-launch pricing."
+           data-success="Thank you — the full amenities brochure is on its way.">View full Aqua Zone list →</a>
       </div>
     </div>
 
@@ -850,13 +958,14 @@
         <ul class="zone-list">
           <li><span class="plume-mark"></span>Multi-purpose Play Court</li>
           <li><span class="plume-mark"></span>Cricket Pitch &amp; Smash Cricket</li>
-          <li><span class="plume-mark"></span>2 Badminton Courts</li>
-          <li><span class="plume-mark"></span>2 Squash Courts</li>
-          <li><span class="plume-mark"></span>Pickleball Courts</li>
+          <li><span class="plume-mark"></span>Badminton, Squash &amp; Pickleball</li>
           <li><span class="plume-mark"></span>Jogging &amp; Skating Track</li>
-          <li><span class="plume-mark"></span>Fitness Station</li>
-          <li><span class="plume-mark"></span>Family Picnic Lawn</li>
         </ul>
+        <a href="javascript:void(0)" class="zone-teaser js-open-modal"
+           data-title="Full Amenities List"
+           data-eyebrow="Sports Zone &amp; More"
+           data-sub="Get the complete 65+ amenities list, floor plans and pre-launch pricing."
+           data-success="Thank you — the full amenities brochure is on its way.">View full Sports Zone list →</a>
       </div>
     </div>
 
@@ -866,13 +975,16 @@
         <span class="eyebrow" style="color:var(--teal);margin-bottom:12px;">Zone 03</span>
         <h3 class="zc-title">Wellness Zone</h3>
         <ul class="zone-list">
-          <li><span class="plume-mark"></span>Heated Pool</li>
-          <li><span class="plume-mark"></span>Ice / Cold Bath</li>
+          <li><span class="plume-mark"></span>Heated Pool &amp; Ice / Cold Bath</li>
           <li><span class="plume-mark"></span>Wellness Lounge &amp; Spa</li>
-          <li><span class="plume-mark"></span>Salon</li>
-          <li><span class="plume-mark"></span>Gymnasium, Kicking &amp; Boxing Room</li>
+          <li><span class="plume-mark"></span>Gymnasium &amp; Boxing Room</li>
           <li><span class="plume-mark"></span>Yoga / Zumba / Pilates Room</li>
         </ul>
+        <a href="javascript:void(0)" class="zone-teaser js-open-modal"
+           data-title="Full Amenities List"
+           data-eyebrow="Wellness Zone &amp; More"
+           data-sub="Get the complete 65+ amenities list, floor plans and pre-launch pricing."
+           data-success="Thank you — the full amenities brochure is on its way.">View full Wellness Zone list →</a>
       </div>
     </div>
 
@@ -882,15 +994,16 @@
         <span class="eyebrow" style="color:var(--teal);margin-bottom:12px;">Zone 04</span>
         <h3 class="zc-title">Social Zone</h3>
         <ul class="zone-list">
-          <li><span class="plume-mark"></span>Banquet Hall &amp; Party Hall</li>
-          <li><span class="plume-mark"></span>Restaurant</li>
-          <li><span class="plume-mark"></span>Celebration Activity Lawn</li>
-          <li><span class="plume-mark"></span>Barbecue Pavilion</li>
+          <li><span class="plume-mark"></span>Banquet &amp; Party Hall</li>
+          <li><span class="plume-mark"></span>Restaurant &amp; Barbecue Pavilion</li>
           <li><span class="plume-mark"></span>Rain Amphitheater</li>
-          <li><span class="plume-mark"></span>Senior Citizens &amp; Pet Pavilion</li>
-          <li><span class="plume-mark"></span>Creche &amp; Business Centre</li>
-          <li><span class="plume-mark"></span>Prayer Hall</li>
+          <li><span class="plume-mark"></span>Creche, Business Centre &amp; more</li>
         </ul>
+        <a href="javascript:void(0)" class="zone-teaser js-open-modal"
+           data-title="Full Amenities List"
+           data-eyebrow="Social Zone &amp; More"
+           data-sub="Get the complete 65+ amenities list, floor plans and pre-launch pricing."
+           data-success="Thank you — the full amenities brochure is on its way.">View full Social Zone list →</a>
       </div>
     </div>
 
@@ -902,11 +1015,14 @@
         <ul class="zone-list">
           <li><span class="plume-mark"></span>Mini Theatre</li>
           <li><span class="plume-mark"></span>Arcade Junction &amp; Bowling Alley</li>
-          <li><span class="plume-mark"></span>Billiards &amp; Card Room</li>
-          <li><span class="plume-mark"></span>Air Hockey &amp; Foosball</li>
-          <li><span class="plume-mark"></span>Karaoke &amp; Music Room</li>
+          <li><span class="plume-mark"></span>Billiards, Cards &amp; Karaoke</li>
           <li><span class="plume-mark"></span>Virtual Game Simulator</li>
         </ul>
+        <a href="javascript:void(0)" class="zone-teaser js-open-modal"
+           data-title="Full Amenities List"
+           data-eyebrow="Entertainment Zone &amp; More"
+           data-sub="Get the complete 65+ amenities list, floor plans and pre-launch pricing."
+           data-success="Thank you — the full amenities brochure is on its way.">View full Entertainment list →</a>
       </div>
     </div>
 
@@ -921,6 +1037,11 @@
           <li><span class="plume-mark"></span>Horizon Viewing Deck</li>
           <li><span class="plume-mark"></span>Terrace Lawn</li>
         </ul>
+        <a href="javascript:void(0)" class="zone-teaser js-open-modal"
+           data-title="Full Amenities List"
+           data-eyebrow="Terrace Zone &amp; More"
+           data-sub="Get the complete 65+ amenities list, floor plans and pre-launch pricing."
+           data-success="Thank you — the full amenities brochure is on its way.">Request full brochure →</a>
       </div>
     </div>
   </div>
@@ -959,15 +1080,22 @@
     <div class="section-head on-dark reveal">
       <span class="eyebrow">Payment Plan</span>
       <h2>Smart 20 × 5 Payment Plan</h2>
-      <p class="plan-note">Pay in five structured instalments of 20% each — designed for flexibility and ease, so you commit at your own pace.</p>
+      <p class="plan-note">A flexible five-stage structure designed so you commit at your own pace. Full milestone schedule and cost sheet available on request.</p>
     </div>
     <div class="plan-row reveal">
       <div class="plan-seg"><div class="ps-pct">20%</div><div class="ps-label">On Booking</div></div>
-      <div class="plan-seg"><div class="ps-pct">20%</div><div class="ps-label">Instalment 2</div></div>
-      <div class="plan-seg"><div class="ps-pct">20%</div><div class="ps-label">Instalment 3</div></div>
-      <div class="plan-seg"><div class="ps-pct">20%</div><div class="ps-label">Instalment 4</div></div>
-      <div class="plan-seg"><div class="ps-pct">20%</div><div class="ps-label">On Offer of Possession</div></div>
+      <div class="plan-seg"><div class="ps-pct">20%</div><div class="ps-label">Stage 2</div></div>
+      <div class="plan-seg"><div class="ps-pct">20%</div><div class="ps-label">Stage 3</div></div>
+      <div class="plan-seg"><div class="ps-pct">20%</div><div class="ps-label">Stage 4</div></div>
+      <div class="plan-seg"><div class="ps-pct">20%</div><div class="ps-label">On Possession</div></div>
     </div>
+    <p style="margin-top:20px;">
+      <a href="javascript:void(0)" class="btn btn-ghost js-open-modal"
+         data-title="Request Full Payment Plan"
+         data-eyebrow="Cost Sheet &amp; Milestones"
+         data-sub="Share your details and we'll send the complete payment schedule and indicative cost sheet."
+         data-success="Thank you — the payment plan details are on their way.">Request Full Payment Schedule</a>
+    </p>
   </div>
 </section>
 
@@ -1031,10 +1159,10 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.99.36 1.96.68 2.89a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.19-1.19a2 2 0 012.11-.45 12.7 12.7 0 002.89.68A2 2 0 0122 16.92z"/></svg>
             +91 98117 33844
           </a>
-          <a href="mailto:kutumbrealtech@gmail.com">
+          <!-- <a href="mailto:kutumbrealtech@gmail.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
             kutumbrealtech@gmail.com
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -1090,10 +1218,10 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.99.36 1.96.68 2.89a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.19-1.19a2 2 0 012.11-.45 12.7 12.7 0 002.89.68A2 2 0 0122 16.92z"/></svg>
             +91 98117 33844
           </a>
-          <a href="mailto:kutumbrealtech@gmail.com">
+          <!-- <a href="mailto:kutumbrealtech@gmail.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
             kutumbrealtech@gmail.com
-          </a>
+          </a> -->
         </div>
       </div>
       <div class="footer-rera">
@@ -1120,11 +1248,87 @@
     <a href="tel:+919811733844" class="sb-icon-btn" aria-label="Call">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.99.36 1.96.68 2.89a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.19-1.19a2 2 0 012.11-.45 12.7 12.7 0 002.89.68A2 2 0 0122 16.92z"/></svg>
     </a>
-    <a href="#enquire" class="btn btn-solid">Book Now</a>
+    <a href="javascript:void(0)" class="btn btn-solid js-open-modal"
+       data-title="Book Your Appointment"
+       data-eyebrow="Pre-Launch Access"
+       data-sub="Share your details — our team will call you with pricing, floor plans and preferred viewing slots."
+       data-success="Thank you — our team will reach out shortly.">Book Now</a>
+  </div>
+</div>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a href="https://wa.me/919811733844?text=Hi%2C%20I%27m%20interested%20in%20Gaur%20Alaris%20(Plume)%20%E2%80%94%203%20%26%204%20BHK%20at%20Sector%2022-D%2C%20Yamuna%20Expressway.%20Please%20share%20details."
+   class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.85 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ============ ENQUIRY MODAL ============ -->
+<div class="modal-overlay" id="enquiryModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button type="button" class="modal-close" id="modalClose" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div id="modalFormStep">
+      <span class="eyebrow" id="modalEyebrow">Pre-Launch Access</span>
+      <h3 id="modalTitle">Book Your Appointment</h3>
+      <p class="fc-sub" id="modalSub">Share your details — our team will call you with pricing, floor plans and preferred viewing slots.</p>
+      <form id="modalEnquiryForm">
+        <div class="field">
+          <label for="mFullName">Full Name</label>
+          <input type="text" id="mFullName" placeholder="Enter your name" required>
+        </div>
+        <div class="field">
+          <label for="mPhone">Phone Number</label>
+          <input type="tel" id="mPhone" placeholder="+91 00000 00000" required>
+        </div>
+        <div class="field">
+          <label for="mEmail">Email Address</label>
+          <input type="email" id="mEmail" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="mConfig">Interested In</label>
+          <select id="mConfig">
+            <option value="3 BHK — 1,550 sq.ft.">3 BHK — 1,550 sq.ft.</option>
+            <option value="4 BHK — 1,950 sq.ft.">4 BHK — 1,950 sq.ft.</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-solid">Request Callback</button>
+        <p class="form-note">By submitting, you agree to be contacted by our sales team regarding Gaur Alaris. This is not an advertisement, invitation to offer, or an offer for sale.</p>
+      </form>
+    </div>
+    <div class="form-success" id="modalFormSuccess">
+      <div class="fs-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c9a45c" stroke-width="1.6"><path d="M4 12l6 6L20 6"/></svg>
+      </div>
+      <h4>Thank you</h4>
+      <p id="modalSuccessMsg">Our team will reach out shortly with the full brochure and pricing details.</p>
+    </div>
   </div>
 </div>
 
 <script>
+  // parallax hero background
+  const heroBgImg = document.getElementById('heroBgImg');
+  const heroSection = document.getElementById('top');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (heroBgImg && !prefersReducedMotion) {
+    let ticking = false;
+    function updateParallax(){
+      const rect = heroSection.getBoundingClientRect();
+      // only animate while hero is in or near the viewport
+      if (rect.bottom > 0 && rect.top < window.innerHeight) {
+        const offset = window.scrollY * 0.35;
+        heroBgImg.style.transform = `translateY(${offset}px)`;
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
+    }, { passive:true });
+    updateParallax();
+  }
+
   // top bar + nav offset on scroll
   const nav = document.getElementById('siteNav');
   window.addEventListener('scroll', () => {
@@ -1150,28 +1354,129 @@
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
+// enquiry form (footer)
+const form = document.getElementById('enquiryForm');
+const formStep = document.getElementById('formStep');
+const formSuccess = document.getElementById('formSuccess');
 
-  // enquiry form
-  const form = document.getElementById('enquiryForm');
-  const formStep = document.getElementById('formStep');
-  const formSuccess = document.getElementById('formSuccess');
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzthOZwyRdMs5H7kgiACY0NX7zIvy7UMeFGEYKALcTj1q86QqEsgX5M86vP0dtJpzjD/exec";
 
+function submitLead(name, phone, email, config, onSuccess, onError) {
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, phone, email, config })
+  })
+  .then(() => onSuccess && onSuccess())
+  .catch(err => { console.error(err); onError && onError(err); });
+}
+
+if (form) {
   form.addEventListener('submit', function(e){
     e.preventDefault();
     const name = document.getElementById('fullName').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const email = document.getElementById('email').value.trim();
     const config = document.getElementById('config').value;
-
-    const SALES_WHATSAPP_NUMBER = "919811733844";
-    const message = `New Enquiry — Gaur Alaris (Plume)%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AEmail: ${encodeURIComponent(email || 'Not provided')}%0AInterested In: ${encodeURIComponent(config)}`;
-    const waLink = `https://wa.me/${SALES_WHATSAPP_NUMBER}?text=${message}`;
-
-    formStep.style.display = 'none';
-    formSuccess.classList.add('show');
-
-    window.open(waLink, '_blank');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    submitLead(name, phone, email, config, () => {
+      formStep.style.display = 'none';
+      formSuccess.classList.add('show');
+    }, () => {
+      alert("Something went wrong. Please try again or call us.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Request Callback";
+    });
   });
+}
+
+// ============ MODAL ============
+const modal = document.getElementById('enquiryModal');
+const modalClose = document.getElementById('modalClose');
+const modalForm = document.getElementById('modalEnquiryForm');
+const modalFormStep = document.getElementById('modalFormStep');
+const modalFormSuccess = document.getElementById('modalFormSuccess');
+const modalTitle = document.getElementById('modalTitle');
+const modalEyebrow = document.getElementById('modalEyebrow');
+const modalSub = document.getElementById('modalSub');
+const modalSuccessMsg = document.getElementById('modalSuccessMsg');
+const mConfig = document.getElementById('mConfig');
+
+function openModal(opts) {
+  if (!modal) return;
+  modalTitle.textContent = opts.title || 'Book Your Appointment';
+  modalEyebrow.textContent = opts.eyebrow || 'Pre-Launch Access';
+  modalSub.textContent = opts.sub || "Share your details — our team will call you with pricing, floor plans and preferred viewing slots.";
+  modalSuccessMsg.textContent = opts.success || 'Our team will reach out shortly with the full brochure and pricing details.';
+  if (opts.config && mConfig) {
+    const opt = Array.from(mConfig.options).find(o => o.value === opts.config);
+    if (opt) mConfig.value = opts.config;
+  }
+  // reset form state
+  modalFormStep.style.display = '';
+  modalFormSuccess.classList.remove('show');
+  if (modalForm) modalForm.reset();
+  if (opts.config && mConfig) mConfig.value = opts.config;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  if (!modal) return;
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.js-open-modal').forEach(el => {
+  el.addEventListener('click', function(e) {
+    e.preventDefault();
+    openModal({
+      title: this.dataset.title,
+      eyebrow: this.dataset.eyebrow,
+      sub: this.dataset.sub,
+      success: this.dataset.success,
+      config: this.dataset.config
+    });
+    // close mobile menu if open
+    if (typeof closeMenu === 'function') closeMenu();
+  });
+});
+
+if (modalClose) modalClose.addEventListener('click', closeModal);
+if (modal) {
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && modal && modal.classList.contains('open')) closeModal();
+});
+
+if (modalForm) {
+  modalForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('mFullName').value.trim();
+    const phone = document.getElementById('mPhone').value.trim();
+    const email = document.getElementById('mEmail').value.trim();
+    const config = document.getElementById('mConfig').value;
+    const submitBtn = modalForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    submitLead(name, phone, email, config, () => {
+      modalFormStep.style.display = 'none';
+      modalFormSuccess.classList.add('show');
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Request Callback";
+    }, () => {
+      alert("Something went wrong. Please try again or call us.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Request Callback";
+    });
+  });
+}
 </script>
 
 </body>
