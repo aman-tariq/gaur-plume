@@ -216,8 +216,8 @@
     .nav-burger{display:flex;}
     .nav-cta .btn{padding:11px 18px;font-size:10px;}
   }
-  /* @media(max-width:400px){
-    .nav-cta .btn span.btn-text-full{display:none;}
+  /* @media(max-width:400px){ */
+    /* .nav-cta .btn span.btn-text-full{display:none;}
   } */
 
   /* ============ HERO ============ */
@@ -534,6 +534,7 @@
   .field input:focus,.field select:focus{border-color:var(--gold);}
   .form-card .btn{width:100%;margin-top:8px;}
   .form-note{font-size:11px;color:var(--ivory-2);opacity:.6;margin-top:14px;line-height:1.6;}
+
   .form-success{display:none;text-align:center;padding:20px 0;}
   .form-success.show{display:block;}
   .form-success .fs-mark{width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
@@ -1354,11 +1355,8 @@
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
-// enquiry form (footer)
-const form = document.getElementById('enquiryForm');
-const formStep = document.getElementById('formStep');
-const formSuccess = document.getElementById('formSuccess');
 
+// ============ LEAD SUBMIT ============
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzthOZwyRdMs5H7kgiACY0NX7zIvy7UMeFGEYKALcTj1q86QqEsgX5M86vP0dtJpzjD/exec";
 
 function submitLead(name, phone, email, config, onSuccess, onError) {
@@ -1372,6 +1370,10 @@ function submitLead(name, phone, email, config, onSuccess, onError) {
   .catch(err => { console.error(err); onError && onError(err); });
 }
 
+// Footer form
+const form = document.getElementById('enquiryForm');
+const formStep = document.getElementById('formStep');
+const formSuccess = document.getElementById('formSuccess');
 if (form) {
   form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -1407,15 +1409,11 @@ const mConfig = document.getElementById('mConfig');
 
 function openModal(opts) {
   if (!modal) return;
+  opts = opts || {};
   modalTitle.textContent = opts.title || 'Book Your Appointment';
   modalEyebrow.textContent = opts.eyebrow || 'Pre-Launch Access';
   modalSub.textContent = opts.sub || "Share your details — our team will call you with pricing, floor plans and preferred viewing slots.";
   modalSuccessMsg.textContent = opts.success || 'Our team will reach out shortly with the full brochure and pricing details.';
-  if (opts.config && mConfig) {
-    const opt = Array.from(mConfig.options).find(o => o.value === opts.config);
-    if (opt) mConfig.value = opts.config;
-  }
-  // reset form state
   modalFormStep.style.display = '';
   modalFormSuccess.classList.remove('show');
   if (modalForm) modalForm.reset();
@@ -1440,7 +1438,6 @@ document.querySelectorAll('.js-open-modal').forEach(el => {
       success: this.dataset.success,
       config: this.dataset.config
     });
-    // close mobile menu if open
     if (typeof closeMenu === 'function') closeMenu();
   });
 });
@@ -1477,6 +1474,20 @@ if (modalForm) {
     });
   });
 }
+
+// Auto-open popup ~3.5 seconds after load
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    if (modal && !modal.classList.contains('open')) {
+      openModal({
+        title: 'Book Your Appointment',
+        eyebrow: 'Pre-Launch Access',
+        sub: 'Share your details — our team will call you with pricing, floor plans and preferred viewing slots.',
+        success: 'Thank you — our team will reach out shortly.'
+      });
+    }
+  }, 3500);
+});
 </script>
 
 </body>
